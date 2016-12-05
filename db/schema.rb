@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205182227) do
+ActiveRecord::Schema.define(version: 20161205185442) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20161205182227) do
   end
 
   create_table "sisterings", force: :cascade do |t|
-    t.integer  "sister1_id"
-    t.integer  "sister2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["sister1_id", "sister2_id"], name: "index_sisterings_on_sister1_id_and_sister2_id", unique: true
-    t.index ["sister1_id"], name: "index_sisterings_on_sister1_id"
-    t.index ["sister2_id"], name: "index_sisterings_on_sister2_id"
+    t.integer  "initial_sister_id"
+    t.integer  "receiving_sister_id"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["initial_sister_id", "receiving_sister_id"], name: "index_sisterings_on_initial_sister_id_and_receiving_sister_id", unique: true
+    t.index ["initial_sister_id"], name: "index_sisterings_on_initial_sister_id"
+    t.index ["receiving_sister_id"], name: "index_sisterings_on_receiving_sister_id"
   end
 
 end
